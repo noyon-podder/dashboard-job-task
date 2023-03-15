@@ -6,19 +6,45 @@ import {
   BsFillLockFill,
   BsFillPersonFill,
 } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "./LoginForm.css";
 
 const LoginForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
+  const navigate = useNavigate();
 
+  //password toggle function
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
+
+  //login data handel function
+  const handleLoginData = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    
+
+    const userEmail = "eve.holt@reqres.in";
+    const userPassword = "5cityslicka";
+
+    if (email === userEmail && password === userPassword) {
+      form.reset();
+      navigate('/dashboard');
+      toast.success("User Login Successfully");
+    } else {
+        form.reset();
+      toast.error("Pleas enter correct information!!!");
+    }
+  };
   return (
-    <Form>
+    <Form onSubmit={handleLoginData}>
       <Form.Group className="mb-3 input-field" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="Username" />
+        <Form.Control type="email" placeholder="Username" name="email" />
         <BsFillPersonFill className="input-icon" />
       </Form.Group>
 
@@ -26,6 +52,7 @@ const LoginForm = () => {
         <Form.Control
           type={passwordShown ? "text" : "password"}
           placeholder="Password"
+          name="password"
         />
         <BsFillLockFill className="input-icon" />
         {/* password toggle icon  */}
@@ -45,7 +72,9 @@ const LoginForm = () => {
       {/* <Button variant="primary" type="submit">
         Submit
       </Button> */}
-      <button className="login-button">Login</button>
+      <button type="submit" className="login-button">
+        Login
+      </button>
       <Link className="forgotten-password">Forgotten Password?</Link>
     </Form>
   );
