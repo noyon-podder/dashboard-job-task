@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddClient from "../component/AddClient";
-import Login from "../component/Login";
+import Login from "../component/Login/Login";
 import ViewClient from "../component/ViewClient";
 import DashboardLayout from "../Layout/DashboardLayout";
 

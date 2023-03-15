@@ -1,0 +1,41 @@
+/* Login Form Style start */
+.login-form {
+  padding: 10px;
+}
+.login-wrapper {
+  margin-top: 50px;
+  padding: 10px;
+  text-align: center;
+}
+/*
+======================
+login banner style */
+.login-banner-container {
+  background: var(--main-color);
+  height: 100vh;
+  text-align: center;
+}
+.login-banner-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.login-banner-text {
+  font-weight: 400;
+  color: #f8f9fd;
+  font-size: 16px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.login-title {
+  color: #030037;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.login-text {
+  color: #686687;
+  font-size: 14px;
+}
